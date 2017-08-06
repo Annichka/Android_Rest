@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:padding="2dip"
+    android:id="@+id/list_item_reLay"
+    android:background="#FFFFFF">
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:text="დამატება"
+        android:id="@+id/list_search_badd"
+        android:textColor="@android:color/white"
+        android:background="@drawable/finish_button"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="16dp"/>
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:id="@+id/list_search_image"
+        android:src="@drawable/menuitem"
+        android:layout_marginLeft="16dp"
+        android:layout_alignTop="@+id/list_search_tvFoodName"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/list_search_tvFoodName"
+        android:text="დასახელება"
+        android:textColor="@android:color/black"
+        android:layout_marginLeft="26dp"
+        android:layout_marginStart="28dp"
+        android:layout_alignTop="@+id/list_search_badd"
+        android:layout_toEndOf="@+id/list_search_image" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ფასი"
+        android:id="@+id/list_search_tvPrice"
+        android:layout_alignBottom="@+id/list_search_badd"
+        android:layout_alignLeft="@+id/list_search_tvFoodName"
+        android:layout_alignStart="@+id/list_search_tvFoodName" />
+
+</RelativeLayout>
