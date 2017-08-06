@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Rest</string>
+    <string name="action_settings">Settings</string>
+    <string name="სულ">სულ:</string>
+    <string name="დასრულება">დასრულება</string>
+    <string name="გამოსვლა">გამოსვლა</string>
+    <string name="შესვლა">შესვლა</string>
+    <string name="რაოდენობა">შეიყვანეთ რაოდენობა</string>
+    <string name="დიახ">OK</string>
+    <string name="რაოდ">Raodenoba</string>
+    <string name="დასახელება">დასახელება</string>
+    <string name="ფასი">ფასი</string>
+    <string name="ჯამი">ჯამი</string>
+    <string name="მინუსი">-</string>
+    <string name="პლუსი">+</string>
+    <string name="დასახ">დასახელება</string>
+    <string name="ფას">ფასი</string>
+    <string name="ჯამ">ჯამი</string>
+    <string name="თანხა" />
+</resources>

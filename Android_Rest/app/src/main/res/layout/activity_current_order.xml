@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/existorder_relative"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fillViewport="true">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tableLayout">
+
+        <ScrollView
+            android:id="@+id/mainpage_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:background="#CCCCCC"/>
+    </TableLayout>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:id="@+id/existorder_linear"
+        android:background="#CCCCCC"
+        android:weightSum="1">
+
+        <SearchView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/existorder_search" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/existorder_lvorder"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/existorder_search"
+            android:layout_above="@+id/existorder_panel"/>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/existorder_lvsearch"
+            android:layout_below="@+id/existorder_search"
+            android:layout_above="@+id/existorder_panel" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:id="@+id/existorder_panel"
+            android:background="#CCCCCC"
+            android:weightSum="1"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/existorder_sum"
+                android:layout_weight="0.96"
+                android:textSize="15sp"
+                android:text=""/>
+
+            <Button
+                android:id="@+id/existorder_brefresh"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/refresh"
+                android:textColor="@android:color/white"
+                android:shadowColor="#CCCCCC"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="5" />
+
+            <Button
+                android:id="@+id/existorder_bSave"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/save"
+                android:textColor="@android:color/white"
+                android:shadowColor="#CCCCCC"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="5" />
+
+            <Button
+                android:id="@+id/existorder_bFinish"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/finish"
+                android:textColor="@android:color/white"
+                android:shadowColor="#CCCCCC"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="5" />
+
+        </LinearLayout>
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:text="@string/MainMenu"
+            android:textColor="@android:color/white"
+            android:id="@+id/existorder_bMainMenu"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/finish_button"
+            android:layout_alignEnd="@+id/existorder_lvorder"
+            android:layout_alignRight="@+id/existorder_lvorder"/>
+    </RelativeLayout>
+
+</LinearLayout>
