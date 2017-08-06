@@ -5,7 +5,7 @@ public class Order {
 
     private int orderId;
     private String date,  dateCreate, dateEnd;
-    private String Zedd;
+    private String Zedd, notification;
 
     private boolean status;
     private double orderPrice;   // შეკვეთის ფასი
@@ -19,6 +19,13 @@ public class Order {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public void setNotification(String not) {
+        this.notification = not;
+    }
+    public String getNotification() {
+        return this.notification;
     }
 
     public void setDateCreate(String date) {

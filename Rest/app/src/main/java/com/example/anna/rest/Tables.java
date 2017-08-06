@@ -138,6 +138,7 @@ public class Tables extends AppCompatActivity implements View.OnClickListener {
                 intn.putExtra("waiter", waiter);
                 intn.putExtra("waiterId", waiterId);
                 intn.putExtra("activeOrderId", activeOrderId);
+                intn.putExtra("tableName", currTbl.tableName);
                 startActivity(intn);
             }
         } catch (SQLException e) {

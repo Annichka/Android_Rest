@@ -25,6 +25,27 @@ public class OrderDao {
         this.conn = conn;
     }
 
+    @SuppressLint("NewApi")
+    public List<Order> ToBeNotified(int waiterId) {
+        List<Order> ords = new ArrayList<>();
+        try (PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Orders, OrdersMagida, Magida WHERE notify = 1 and Orders.IdGvari = "
+                + waiterId + " and Orders.Active = 1 and ordersMagida.idorders = Orders.idOrders and " +
+                " ordersmagida.idmagida = magida.idmagida")) {
+            try (ResultSet rslt = stmt.executeQuery()) {
+                while (rslt.next()) {
+                    Order h = new Order();
+                    String magida = rslt.getString("magida");
+                    h.setNotification("Order is ready for table " + magida);
+                    ords.add(h);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ords;
+    }
+
+
     public int makeNewOrder(int tableId, int waiterId) {
         /* ჯერ ვაკეთებ Orders  და მერე მივუერთებ OrdersMagida და OrdersProd-ებს.  */
         int newOrdId = makeOrder(waiterId);

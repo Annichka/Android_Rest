@@ -1,0 +1,184 @@
+CREATE TABLE Darbazi (
+	idDarbazi int,
+	idProek int, 
+	idDarbaziT int,
+	momsProc int,
+	lenX int,
+	lenY int,
+	darbazi text,
+	shen text,
+	hasOwnMenu int
+);
+
+
+CREATE TABLE Magida (
+	ID int,
+	idMagida int,
+	magida text,
+	idDarbazi int
+);
+
+CREATE TABLE Gvari (
+	ID int,
+	idGvari int,
+	idGank int, 
+	idGvariT int,
+	gvari text,
+	tveXelp float,
+	dgeXelp float,
+	magidaProc int,
+	darbaziProc int,
+	sulProc int,
+	cardnumber int
+);
+
+CREATE TABLE Orders (
+	ID int  ,
+	Data text,
+	DataCreate text,
+	DataEnd text,
+	Zedd text,
+	IdGvari int,
+	IdOrg int, 
+	IdOrdersStatus int,
+	IdDeleteT int,
+	IdGonisdziebaT int,
+	IdORdersT int,
+	PreOrderPrintCount int,
+	OrdersPrintCount int,
+	Shen text, 
+	UN text,
+	CD text,
+	Active int, 
+	Discount int,
+	Time text
+);
+
+CREATE TABLE OrdersMagida (
+	ID int  ,
+	IdOrdersMagida int,
+	IdOrders int,
+	IdMagida int
+);
+
+
+
+CREATE TABLE OrdersProd (
+	ID int  ,
+	IdOrdersProd int,
+	IdOrders int,
+	Raod int,
+	IdProd text,
+	DataCreate text,
+	DataModified text,
+	IdOrdersProdStatus int,
+	MomzadebaT text,
+	Fasi float,
+	Tanxa float,
+	MomsProc int,
+	IdDeleteT int,
+	Printed int,
+	SubOrderNum int,
+	UN text,
+	CD text,
+	FasiStandart float
+);
+
+CREATE TABLE OrdersMimtani (
+	ID int ,
+	IdOrders int,
+	IdGvari int
+);
+
+
+
+CREATE TABLE ProdTG (
+	idprodtg int,
+	prodTg text (sasmeli)
+);
+
+CREATE TABLE ProdT (
+	idprodtg int,
+	IdProdT int,
+	prodname text
+);
+
+CREATE TABLE Prod (
+	ID int  ,
+	IdProd text,
+	idprodt int,
+	Prod text,
+	ProdShort text,
+	IdProdCat int,
+	ProdRus text,
+	ProdShortRus text,
+	ProdEng text,
+	ProdShortEng text,
+	CookingTime int,
+	Fasi1 float,
+	IsInMainMenu int
+);
+
+
+
+CREATE TABLE MomzadebaT (
+	momzadebaT text,
+	IdMomzadebaT int,
+);
+
+CREATE TABLE ProdMomzadebaT (
+	IdMomzadebaT int,
+	IdProd text
+);
+
+
+
+
+
+CREATE TABLE Salaro (
+	idSalaro int,
+	idSalaroT int,
+	idFiscalPrinter int,
+	FiscalPrinterCOM text,
+	salaro text,
+	fiscalPrinter text,
+	isFiskaluri int,
+	withoutCash int, 
+	showInClientApp int
+);
+
+CREATE TABLE SalT (
+	idSal int,
+	sal text
+);
+
+
+CREATE TABLE ZeddAuto (
+	id int,
+	Num int,
+	TableName text
+);
+
+
+CREATE TABLE ProductOutOfStock(
+	id int ,
+	IdProd text
+);
+
+
+
+create table GvariMagida (
+	id int identity(1,1),
+	idMagida int,
+	idgvari int
+);
+
+
+
+
+
+
+
+
+
+

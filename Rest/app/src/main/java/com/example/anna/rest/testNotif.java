@@ -1,5 +1,6 @@
 package com.example.anna.rest;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -14,8 +15,19 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import DataBaseConnection.DataBase;
+import manager.OrderManager;
+import order.bean.Order;
+import order.dao.OrderDao;
 
 
 public class testNotif extends Service {
@@ -54,23 +66,39 @@ public class testNotif extends Service {
         return 0;
     }
 
+
     @Override
     public void onDestroy() {
         super.onDestroy();
     }
 
+
+    @SuppressLint("NewApi")
     public void showNotification() {
         PendingIntent pi = PendingIntent.getActivity(this, 0, new Intent(this, testNotif.class), 0);
         Resources r = getResources();
-        Notification notification = new NotificationCompat.Builder(this)
-                .setSmallIcon(android.R.drawable.ic_menu_report_image)
-                .setContentTitle("Test")
-                .setContentText("Notified")
-                .setContentIntent(pi)
-                .build();
 
-        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        notificationManager.notify(0, notification);
+        SharedPreferences shared = this.getSharedPreferences("Waiter Data", Context.MODE_PRIVATE);
+        int waiterId = shared.getInt("waiterid", -1);
+        OrderDao oDao = null;
+        try {
+            oDao = (new OrderManager(DataBase.db).getOrderDao());
+            List<Order> ords = oDao.ToBeNotified(waiterId);
+
+            for(int i= 0; i < ords.size(); i++) {
+                Notification notification = new NotificationCompat.Builder(this)
+                        .setSmallIcon(android.R.drawable.ic_menu_report_image)
+                        .setContentTitle("შეკვეთა დამზადდა")
+                        .setContentText(ords.get(i).getNotification())
+                        .setContentIntent(pi)
+                        .build();
+
+                NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                notificationManager.notify(0, notification);
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
 }
